@@ -1,4 +1,8 @@
-# 🧬 GenoScene (GenoSite)
+<p align="center">
+  <img src="docs/assets/banner.jpg" alt="GenoScene Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</p>
+
+# 🧬 GenoScene
 ### AI-Powered Forensic DNA Phenotyping & Facial Reconstruction System
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -12,6 +16,26 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Diffusers](https://img.shields.io/badge/Diffusers-SDXL%201.0-FFD21E)](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas%20%7C%20Local-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
+---
+
+## 📸 Visual Showcase & Platform Tour
+
+### 🖥️ Interactive Forensic Analysis Dashboard
+The GenoScene dashboard provides an end-to-end interface for drag-and-drop SNP matrix ingestion, real-time dosage vector validation, calibrated probability breakdown across pigmentation traits, and overall analytical confidence indexing.
+
+<p align="center">
+  <img src="docs/assets/dashboard_preview.jpg" alt="GenoScene Analysis Dashboard" width="100%" style="border-radius: 10px; border: 1px solid #1e293b;" />
+</p>
+
+---
+
+### 🧬 Generative Facial Reconstruction from Phenotypes
+Quantitative phenotype prediction vectors are translated through an algorithmic prompt builder and synthesized into photorealistic 1024x1024 facial composites using Stable Diffusion XL (SDXL) with precision biometric landmark alignment.
+
+<p align="center">
+  <img src="docs/assets/facial_reconstruction.jpg" alt="GenoScene Facial Reconstruction" width="100%" style="border-radius: 10px; border: 1px solid #1e293b;" />
+</p>
 
 ---
 

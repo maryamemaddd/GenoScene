@@ -1,6 +1,10 @@
 # 🎨 GenoScene Face Generation Engine
 ### Generative Forensic Facial Reconstruction using Stable Diffusion XL (SDXL)
 
+<p align="center">
+  <img src="../docs/assets/facial_reconstruction.jpg" alt="GenoScene Generative Facial Reconstruction" width="100%" style="border-radius: 10px; border: 1px solid #1e293b;" />
+</p>
+
 The **GenoScene Face Generation Engine** transforms discrete and probabilistic phenotypic traits (eye color, hair pigmentation, skin dermal tones) into hyper-realistic, photorealistic forensic facial portraits using state-of-the-art latent diffusion models.
 
 ---

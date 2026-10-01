@@ -1,6 +1,10 @@
 # 🧬 GenoScene Web Application
 ### Flagship Forensic Genomics & Phenotypic Intelligence User Interface
 
+<p align="center">
+  <img src="../docs/assets/dashboard_preview.jpg" alt="GenoScene Web Application Interface" width="100%" style="border-radius: 10px; border: 1px solid #1e293b;" />
+</p>
+
 The **GenoScene Web Application** is a modern, high-performance forensic workstation built with **React 19**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**. It provides forensic investigators, geneticists, and students with an intuitive, visually stunning platform to analyze genomic data, inspect calibrated phenotype distributions, and explore the science of forensic DNA phenotyping.
 
 ---

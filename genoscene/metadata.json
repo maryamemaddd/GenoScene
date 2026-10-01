@@ -1,0 +1,6 @@
+{
+  "name": "GenoScene",
+  "description": "AI-powered forensic DNA phenotyping platform predicting externally visible traits from SNP genotype data.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

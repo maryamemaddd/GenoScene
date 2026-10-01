@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+imbalanced-learn
+optuna
+pytorch-tabnet
+joblib
+fastapi
+uvicorn
+python-multipart

@@ -20,6 +20,7 @@ The **GenoScene AI Engine** is a high-throughput, low-latency FastAPI microservi
 ## 🏗️ Architecture & Model Design
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': false, 'background': '#FFFFFF', 'mainBkg': '#FFFFFF', 'clusterBkg': '#FFFFFF', 'clusterBorder': '#CBD5E1', 'lineColor': '#475569' }}}%%
 flowchart TD
     CSV["📄 <b>Raw CSV Upload</b><br/>Genomic SNP Matrix"] --> Val["🔍 <b>Validation & Ingestion</b><br/>Schema verification & sanity check"]
     Val --> Pre["⚙️ <b>Preprocessing & Encoding</b><br/>Additive Dosage Vector Transformation (0, 1, 2)"]
@@ -36,17 +37,19 @@ flowchart TD
     M3 --> Calib
     Calib --> Out["📦 <b>JSON Response Payload</b><br/>Calibrated Posterior Distributions & Confidence Score"]
 
-    classDef startStyle fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#F8FAFC;
-    classDef modelEye fill:#172554,stroke:#3B82F6,stroke-width:2px,color:#F8FAFC;
-    classDef modelHair fill:#451A03,stroke:#F59E0B,stroke-width:2px,color:#F8FAFC;
-    classDef modelSkin fill:#3B0764,stroke:#A855F7,stroke-width:2px,color:#F8FAFC;
-    classDef endStyle fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#F8FAFC;
+    classDef dnaCyan fill:#F0FDFA,stroke:#0D9488,stroke-width:2.5px,color:#0F172A;
+    classDef dnaBlue fill:#EFF6FF,stroke:#2563EB,stroke-width:2.5px,color:#0F172A;
+    classDef dnaAmber fill:#FFFBEB,stroke:#D97706,stroke-width:2.5px,color:#0F172A;
+    classDef dnaPurple fill:#FAF5FF,stroke:#7C3AED,stroke-width:2.5px,color:#0F172A;
+    classDef dnaGreen fill:#ECFDF5,stroke:#059669,stroke-width:2.5px,color:#0F172A;
 
-    class CSV,Val,Pre,FS startStyle;
-    class M1 modelEye;
-    class M2 modelHair;
-    class M3 modelSkin;
-    class Calib,Out endStyle;
+    class CSV,Val,Pre,FS dnaCyan;
+    class M1 dnaBlue;
+    class M2 dnaAmber;
+    class M3 dnaPurple;
+    class Calib,Out dnaGreen;
+
+    style ML_Inference fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
 ```
 
 ### Models & Artifacts

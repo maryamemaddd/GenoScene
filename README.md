@@ -46,6 +46,7 @@ Quantitative phenotype prediction vectors are translated through an algorithmic 
 The predicted quantitative phenotype distributions are then synthesized through an advanced **Stable Diffusion XL (SDXL)** generative pipeline to construct photorealistic, forensically consistent facial composite portraits.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': false, 'background': '#FFFFFF', 'mainBkg': '#FFFFFF', 'clusterBkg': '#FFFFFF', 'clusterBorder': '#CBD5E1', 'lineColor': '#475569' }}}%%
 flowchart TD
     subgraph S1 ["🧪 1. Genomic Input Matrix"]
         DNA["🧬 <b>Genotype SNP Data</b><br/>40 Validated Forensic Markers<br/><i>(HERC2, OCA2, SLC45A2, MC1R)</i>"]
@@ -81,24 +82,28 @@ flowchart TD
     Prompt --> SDXL
     Pheno --> UI
 
-    classDef cyan fill:#082f49,stroke:#06b6d4,stroke-width:2px,color:#f8fafc;
-    classDef blue fill:#172554,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
-    classDef amber fill:#451a03,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
-    classDef purple fill:#3b0764,stroke:#a855f7,stroke-width:2px,color:#f8fafc;
-    classDef emerald fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    classDef rose fill:#831843,stroke:#f43f5e,stroke-width:2px,color:#f8fafc;
-    classDef teal fill:#042f2e,stroke:#14b8a6,stroke-width:2px,color:#f8fafc;
-    classDef slate fill:#1e293b,stroke:#64748b,stroke-width:2px,color:#f8fafc;
+    classDef dnaCyan fill:#F0FDFA,stroke:#0D9488,stroke-width:2.5px,color:#0F172A;
+    classDef dnaBlue fill:#EFF6FF,stroke:#2563EB,stroke-width:2.5px,color:#0F172A;
+    classDef dnaGreen fill:#ECFDF5,stroke:#059669,stroke-width:2.5px,color:#0F172A;
+    classDef dnaAmber fill:#FFFBEB,stroke:#D97706,stroke-width:2.5px,color:#0F172A;
+    classDef dnaPurple fill:#FAF5FF,stroke:#7C3AED,stroke-width:2.5px,color:#0F172A;
+    classDef dnaCoral fill:#FFF1F2,stroke:#E11D48,stroke-width:2.5px,color:#0F172A;
+    classDef dnaSlate fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#0F172A;
 
-    class DNA cyan;
-    class Pre slate;
-    class Eye blue;
-    class Hair amber;
-    class Skin purple;
-    class Pheno emerald;
-    class Prompt rose;
-    class SDXL rose;
-    class UI teal;
+    class DNA dnaCyan;
+    class Pre dnaSlate;
+    class Eye dnaBlue;
+    class Hair dnaAmber;
+    class Skin dnaPurple;
+    class Pheno dnaGreen;
+    class Prompt dnaPurple;
+    class SDXL dnaCoral;
+    class UI dnaCyan;
+
+    style S1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
+    style S2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
+    style S3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
+    style S4 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
 ```
 
 

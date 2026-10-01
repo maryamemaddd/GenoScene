@@ -27,6 +27,7 @@ The **GenoScene Face Generation Engine** transforms discrete and probabilistic p
 ## 🏗️ Technical Pipeline
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': false, 'background': '#FFFFFF', 'mainBkg': '#FFFFFF', 'clusterBkg': '#FFFFFF', 'clusterBorder': '#CBD5E1', 'lineColor': '#475569' }}}%%
 flowchart TD
     Vector["📊 <b>Phenotype Prediction Vector</b><br/>Eye: Brown 98.4% • Hair: Dark Brown 91.1% • Skin: Intermediate 89.6%"]
     
@@ -48,15 +49,18 @@ flowchart TD
     Studio --> Lock
     Flush --> Result["👤 <b>Synthesized 1024x1024 Forensic Portrait</b><br/>Photorealistic Forensic Facial Composite"]
 
-    classDef vecStyle fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#F8FAFC;
-    classDef engineStyle fill:#1E1B4B,stroke:#6366F1,stroke-width:2px,color:#F8FAFC;
-    classDef sdxlStyle fill:#831843,stroke:#EC4899,stroke-width:2px,color:#F8FAFC;
-    classDef resStyle fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#F8FAFC;
+    classDef dnaBlue fill:#EFF6FF,stroke:#2563EB,stroke-width:2.5px,color:#0F172A;
+    classDef dnaPurple fill:#FAF5FF,stroke:#7C3AED,stroke-width:2.5px,color:#0F172A;
+    classDef dnaCoral fill:#FFF1F2,stroke:#E11D48,stroke-width:2.5px,color:#0F172A;
+    classDef dnaGreen fill:#ECFDF5,stroke:#059669,stroke-width:2.5px,color:#0F172A;
 
-    class Vector vecStyle;
-    class Margin,Tone,Studio engineStyle;
-    class Lock,Model,Flush sdxlStyle;
-    class Result resStyle;
+    class Vector dnaBlue;
+    class Margin,Tone,Studio dnaPurple;
+    class Lock,Model,Flush dnaCoral;
+    class Result dnaGreen;
+
+    style Engine fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
+    style SDXL_Pipeline fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
 ```
 
 ---

@@ -45,66 +45,9 @@ Quantitative phenotype prediction vectors are translated through an algorithmic 
 
 The predicted quantitative phenotype distributions are then synthesized through an advanced **Stable Diffusion XL (SDXL)** generative pipeline to construct photorealistic, forensically consistent facial composite portraits.
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': false, 'background': '#FFFFFF', 'mainBkg': '#FFFFFF', 'clusterBkg': '#FFFFFF', 'clusterBorder': '#CBD5E1', 'lineColor': '#475569' }}}%%
-flowchart TD
-    subgraph S1 ["🧪 1. Genomic Input Matrix"]
-        DNA["🧬 <b>Genotype SNP Data</b><br/>40 Validated Forensic Markers<br/><i>(HERC2, OCA2, SLC45A2, MC1R)</i>"]
-    end
-
-    subgraph S2 ["🧠 2. Multi-Task Machine Learning Engine"]
-        Pre["⚙️ <b>Feature Vectorization</b><br/>Additive Dosage Vector Encoding (0, 1, 2)"]
-        
-        Eye["👁️ <b>Eye Color Classifier</b><br/>Calibrated SVC (RBF Kernel)<br/><i>Blue • Intermediate • Brown</i>"]
-        Hair["💇 <b>Hair Phenotype Stacking</b><br/>Stacking Ensemble (LGBM, XGBoost, TabNet)<br/><i>Blond • Brown • Red • Black + Shade</i>"]
-        Skin["🧖 <b>Skin Tone Classifier</b><br/>HistGradientBoosting (Optuna-Tuned)<br/><i>Pale • Intermediate • Dark</i>"]
-        
-        Pre --> Eye
-        Pre --> Hair
-        Pre --> Skin
-    end
-
-    subgraph S3 ["📊 3. Quantified Phenotype Vectors"]
-        Pheno["📈 <b>Calibrated Posterior Probabilities</b><br/>Multi-Task Trait Distributions & Overall Confidence"]
-    end
-
-    subgraph S4 ["🎨 4. Generative Reconstruction & Client Delivery"]
-        Prompt["📝 <b>Dynamic Prompt Synthesizer</b><br/>Probability Margin Thresholding & Subtle Undertones"]
-        SDXL["🖼️ <b>Stable Diffusion XL (SDXL 1.0)</b><br/>1024x1024 Photorealistic Composite Synthesis"]
-        UI["🖥️ <b>Interactive Forensic Workstation</b><br/>3D DNA Helix Stream • Real-time Inspection • History Logs"]
-    end
-
-    DNA --> Pre
-    Eye --> Pheno
-    Hair --> Pheno
-    Skin --> Pheno
-    Pheno --> Prompt
-    Prompt --> SDXL
-    Pheno --> UI
-
-    classDef dnaCyan fill:#F0FDFA,stroke:#0D9488,stroke-width:2.5px,color:#0F172A;
-    classDef dnaBlue fill:#EFF6FF,stroke:#2563EB,stroke-width:2.5px,color:#0F172A;
-    classDef dnaGreen fill:#ECFDF5,stroke:#059669,stroke-width:2.5px,color:#0F172A;
-    classDef dnaAmber fill:#FFFBEB,stroke:#D97706,stroke-width:2.5px,color:#0F172A;
-    classDef dnaPurple fill:#FAF5FF,stroke:#7C3AED,stroke-width:2.5px,color:#0F172A;
-    classDef dnaCoral fill:#FFF1F2,stroke:#E11D48,stroke-width:2.5px,color:#0F172A;
-    classDef dnaSlate fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#0F172A;
-
-    class DNA dnaCyan;
-    class Pre dnaSlate;
-    class Eye dnaBlue;
-    class Hair dnaAmber;
-    class Skin dnaPurple;
-    class Pheno dnaGreen;
-    class Prompt dnaPurple;
-    class SDXL dnaCoral;
-    class UI dnaCyan;
-
-    style S1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
-    style S2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
-    style S3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
-    style S4 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px,color:#0F172A;
-```
+<p align="center">
+  <img src="docs/assets/architecture_pipeline.svg" alt="GenoScene Architecture Pipeline" width="100%" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+</p>
 
 
 ---

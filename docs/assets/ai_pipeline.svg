@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; fill: #334155; }
+      .badge { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+      .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11px; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+    </marker>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Solid White Background -->
+  <rect width="940" height="680" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+
+  <!-- STEP 1: CSV UPLOAD & INGESTION -->
+  <g transform="translate(180, 25)">
+    <rect width="580" height="75" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="2" filter="url(#card-shadow)" />
+    <text x="290" y="28" text-anchor="middle" class="badge" fill="#0D9488">INPUT INGESTION</text>
+    <text x="290" y="48" text-anchor="middle" class="title">📄 Raw CSV Upload &amp; Schema Validation</text>
+    <text x="290" y="66" text-anchor="middle" class="desc">Missing Value Detection • Non-empty Format Verification</text>
+  </g>
+
+  <line x1="470" y1="100" x2="470" y2="125" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- STEP 2: PREPROCESSING & FEATURE SELECTION -->
+  <g transform="translate(180, 130)">
+    <rect width="580" height="80" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#card-shadow)" />
+    <text x="290" y="26" text-anchor="middle" class="badge" fill="#2563EB">PREPROCESSING &amp; SELECTION</text>
+    <text x="290" y="48" text-anchor="middle" class="title">🎯 40-SNP Feature Extraction Matrix</text>
+    <text x="290" y="68" text-anchor="middle" class="tag" fill="#1E40AF">Additive Allele Encoding (0, 1, 2) • Standard Scaling</text>
+  </g>
+
+  <line x1="470" y1="210" x2="470" y2="245" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- STEP 3: PARALLEL INFERENCE PIPELINE -->
+  <g transform="translate(40, 250)">
+    <rect width="860" height="190" rx="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+    <text x="430" y="26" text-anchor="middle" class="badge" fill="#475569">🔬 PARALLEL INFERENCE PIPELINE</text>
+
+    <!-- Branching arrows -->
+    <path d="M 430 0 L 430 18 L 160 18 L 160 40" class="arrow" marker-end="url(#arrowhead)" />
+    <line x1="430" y1="0" x2="430" y2="40" class="arrow" marker-end="url(#arrowhead)" />
+    <path d="M 430 0 L 430 18 L 700 18 L 700 40" class="arrow" marker-end="url(#arrowhead)" />
+
+    <!-- Model 1 (Eye: Blue) -->
+    <g transform="translate(30, 45)">
+      <rect width="240" height="120" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="120" y="28" text-anchor="middle" class="title">👁️ Eye Classifier</text>
+      <text x="120" y="48" text-anchor="middle" class="desc" font-weight="600" fill="#1D4ED8">Calibrated SVC (RBF)</text>
+      <line x1="15" y1="60" x2="225" y2="60" stroke="#BFDBFE" stroke-width="1" />
+      <text x="120" y="80" text-anchor="middle" class="tag" fill="#1E3A8A">Blue • Inter • Brown</text>
+      <text x="120" y="100" text-anchor="middle" class="desc" font-size="11px">Accuracy: 92.4%</text>
+    </g>
+
+    <!-- Model 2 (Hair: Amber) -->
+    <g transform="translate(310, 45)">
+      <rect width="240" height="120" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="120" y="28" text-anchor="middle" class="title">💇 Hair Classifier</text>
+      <text x="120" y="48" text-anchor="middle" class="desc" font-weight="600" fill="#B45309">Stacking Ensemble</text>
+      <line x1="15" y1="60" x2="225" y2="60" stroke="#FDE68A" stroke-width="1" />
+      <text x="120" y="80" text-anchor="middle" class="tag" fill="#78350F">LGBM + XGB + TabNet</text>
+      <text x="120" y="100" text-anchor="middle" class="desc" font-size="11px">Accuracy: 84.1%</text>
+    </g>
+
+    <!-- Model 3 (Skin: Purple) -->
+    <g transform="translate(590, 45)">
+      <rect width="240" height="120" rx="8" fill="#FAF5FF" stroke="#7C3AED" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="120" y="28" text-anchor="middle" class="title">🧖 Skin Tone Classifier</text>
+      <text x="120" y="48" text-anchor="middle" class="desc" font-weight="600" fill="#6D28D9">HistGradientBoosting</text>
+      <line x1="15" y1="60" x2="225" y2="60" stroke="#DDD6FE" stroke-width="1" />
+      <text x="120" y="80" text-anchor="middle" class="tag" fill="#4C1D95">Pale • Inter • Dark</text>
+      <text x="120" y="100" text-anchor="middle" class="desc" font-size="11px">Accuracy: 86.8%</text>
+    </g>
+  </g>
+
+  <!-- Joining arrows from models to calibration -->
+  <path d="M 190 440 L 190 465 L 430 465 L 430 475" class="arrow" />
+  <line x1="470" y1="440" x2="470" y2="475" class="arrow" />
+  <path d="M 750 440 L 750 465 L 510 465 L 510 475" class="arrow" />
+  <line x1="470" y1="475" x2="470" y2="485" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- STEP 4: PROBABILITY CALIBRATION -->
+  <g transform="translate(180, 490)">
+    <rect width="580" height="65" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#card-shadow)" />
+    <text x="290" y="26" text-anchor="middle" class="badge" fill="#059669">CALIBRATION ENGINE</text>
+    <text x="290" y="48" text-anchor="middle" class="title">📊 Sigmoid / Isotonic Probability Calibration</text>
+  </g>
+
+  <line x1="470" y1="555" x2="470" y2="580" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- STEP 5: OUTPUT JSON PAYLOAD -->
+  <g transform="translate(180, 585)">
+    <rect width="580" height="70" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="2.5" filter="url(#card-shadow)" />
+    <text x="290" y="26" text-anchor="middle" class="badge" fill="#0D9488">JSON RESPONSE</text>
+    <text x="290" y="50" text-anchor="middle" class="title">📦 Calibrated Trait Distributions &amp; Overall Confidence</text>
+  </g>
+</svg>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; fill: #334155; }
+      .section-badge { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #0284c7; letter-spacing: 0.5px; }
+      .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11px; fill: #475569; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+    </marker>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Solid White Canvas (Eliminates ALL dark gaps completely) -->
+  <rect width="1000" height="780" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+
+  <!-- SECTION 1: GENOMIC INPUT MATRIX -->
+  <g transform="translate(160, 30)">
+    <rect width="680" height="100" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="2.5" filter="url(#card-shadow)" />
+    <text x="340" y="32" text-anchor="middle" class="section-badge" fill="#0D9488">🧪 1. GENOMIC INPUT MATRIX</text>
+    <text x="340" y="60" text-anchor="middle" class="title">🧬 Genotype SNP Dosage Matrix</text>
+    <text x="340" y="82" text-anchor="middle" class="tag">40 Forensic Ancestry &amp; Pigmentation Markers (HERC2, OCA2, SLC45A2, MC1R)</text>
+  </g>
+
+  <!-- Arrow S1 -> S2 -->
+  <line x1="500" y1="130" x2="500" y2="165" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- SECTION 2: AI INFERENCE ENGINE CONTAINER -->
+  <g transform="translate(40, 170)">
+    <rect width="920" height="280" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+    <text x="460" y="28" text-anchor="middle" class="section-badge" fill="#3B82F6">🧠 2. MULTI-TASK MACHINE LEARNING ENGINE</text>
+
+    <!-- Vectorization Bar -->
+    <g transform="translate(180, 42)">
+      <rect width="560" height="48" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" filter="url(#card-shadow)" />
+      <text x="280" y="24" text-anchor="middle" class="title" font-size="13px">⚙️ Feature Vectorization &amp; Dosage Mapping</text>
+      <text x="280" y="40" text-anchor="middle" class="desc" font-size="11px">Additive Allele Encoding (0, 1, 2) • Missing Value Imputation • Variance Filtering</text>
+    </g>
+
+    <!-- Connectors from Vectorization to Models -->
+    <path d="M 330 90 L 330 115 L 145 115 L 145 125" class="arrow" marker-end="url(#arrowhead)" />
+    <line x1="460" y1="90" x2="460" y2="125" class="arrow" marker-end="url(#arrowhead)" />
+    <path d="M 590 90 L 590 115 L 775 115 L 775 125" class="arrow" marker-end="url(#arrowhead)" />
+
+    <!-- Model 1: Eye Color (Adenine Blue) -->
+    <g transform="translate(20, 130)">
+      <rect width="260" height="125" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="130" y="30" text-anchor="middle" class="title">👁️ Eye Pigmentation</text>
+      <text x="130" y="52" text-anchor="middle" class="desc" font-weight="600" fill="#1D4ED8">Calibrated SVC (RBF Kernel)</text>
+      <line x1="20" y1="65" x2="240" y2="65" stroke="#BFDBFE" stroke-width="1" />
+      <text x="130" y="86" text-anchor="middle" class="desc">Target Classes:</text>
+      <text x="130" y="106" text-anchor="middle" class="tag" font-weight="600" fill="#1E40AF">Blue • Intermediate • Brown</text>
+    </g>
+
+    <!-- Model 2: Hair Phenotype (Cytosine Amber) -->
+    <g transform="translate(330, 130)">
+      <rect width="260" height="125" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="130" y="30" text-anchor="middle" class="title">💇 Hair Color &amp; Shade</text>
+      <text x="130" y="52" text-anchor="middle" class="desc" font-weight="600" fill="#B45309">Stacking Ensemble (Optuna)</text>
+      <line x1="20" y1="65" x2="240" y2="65" stroke="#FDE68A" stroke-width="1" />
+      <text x="130" y="86" text-anchor="middle" class="desc">Base: LGBM + XGB + HistGB</text>
+      <text x="130" y="106" text-anchor="middle" class="tag" font-weight="600" fill="#92400E">Blond • Brown • Red • Black</text>
+    </g>
+
+    <!-- Model 3: Skin Pigmentation (Guanine Purple) -->
+    <g transform="translate(640, 130)">
+      <rect width="260" height="125" rx="10" fill="#FAF5FF" stroke="#7C3AED" stroke-width="2" filter="url(#card-shadow)" />
+      <text x="130" y="30" text-anchor="middle" class="title">🧖 Skin Dermal Tone</text>
+      <text x="130" y="52" text-anchor="middle" class="desc" font-weight="600" fill="#6D28D9">HistGradientBoosting</text>
+      <line x1="20" y1="65" x2="240" y2="65" stroke="#DDD6FE" stroke-width="1" />
+      <text x="130" y="86" text-anchor="middle" class="desc">Calibrated Phototype:</text>
+      <text x="130" y="106" text-anchor="middle" class="tag" font-weight="600" fill="#5B21B6">Pale • Intermediate • Dark</text>
+    </g>
+  </g>
+
+  <!-- Connectors from 3 Models to Phenotype Vectors -->
+  <path d="M 190 450 L 190 475 L 450 475 L 450 485" class="arrow" />
+  <line x1="500" y1="450" x2="500" y2="485" class="arrow" />
+  <path d="M 810 450 L 810 475 L 550 475 L 550 485" class="arrow" />
+  <line x1="500" y1="480" x2="500" y2="495" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- SECTION 3: QUANTIFIED PHENOTYPE VECTORS (Thymine Green) -->
+  <g transform="translate(180, 500)">
+    <rect width="640" height="85" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="2.5" filter="url(#card-shadow)" />
+    <text x="320" y="28" text-anchor="middle" class="section-badge" fill="#059669">📊 3. QUANTIFIED PHENOTYPE POSTERIOR VECTOR</text>
+    <text x="320" y="52" text-anchor="middle" class="title">📈 Calibrated Multi-Task Probability Distributions</text>
+    <text x="320" y="72" text-anchor="middle" class="desc">Overall Forensic Confidence Score (e.g. 93.7%) • Trait Margin Confidence Ratios</text>
+  </g>
+
+  <!-- Connectors from S3 to S4 (Branching to SDXL & Frontend) -->
+  <path d="M 360 585 L 360 625 L 260 625 L 260 635" class="arrow" marker-end="url(#arrowhead)" />
+  <path d="M 640 585 L 640 625 L 740 625 L 740 635" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- SECTION 4: DELIVERY & SYNTHESIS -->
+  <!-- Left: SDXL Generative Reconstruction (Coral Rose) -->
+  <g transform="translate(50, 640)">
+    <rect width="420" height="110" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="2" filter="url(#card-shadow)" />
+    <text x="210" y="28" text-anchor="middle" class="section-badge" fill="#E11D48">🎨 GENERATIVE FACIAL SYNTHESIS</text>
+    <text x="210" y="52" text-anchor="middle" class="title">🖼️ Stable Diffusion XL (SDXL 1.0)</text>
+    <text x="210" y="74" text-anchor="middle" class="desc">Algorithmic Prompt Synthesizer (Margin Evaluation)</text>
+    <text x="210" y="94" text-anchor="middle" class="tag" font-weight="600" fill="#9F1239">1024x1024 Composite • Thread-Safe GPU Lock</text>
+  </g>
+
+  <!-- Right: Interactive Frontend (DNA Cyan) -->
+  <g transform="translate(530, 640)">
+    <rect width="420" height="110" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="2" filter="url(#card-shadow)" />
+    <text x="210" y="28" text-anchor="middle" class="section-badge" fill="#0D9488">🖥️ FORENSIC WORKSTATION</text>
+    <text x="210" y="52" text-anchor="middle" class="title">⚡ React 19 + TypeScript + Vite</text>
+    <text x="210" y="74" text-anchor="middle" class="desc">GPU-Accelerated 3D DNA Helix • Interactive Sliders</text>
+    <text x="210" y="94" text-anchor="middle" class="tag" font-weight="600" fill="#115E59">Dynamic Drag &amp; Drop CSV • History Audit Trail</text>
+  </g>
+</svg>

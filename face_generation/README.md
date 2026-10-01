@@ -26,26 +26,37 @@ The **GenoScene Face Generation Engine** transforms discrete and probabilistic p
 
 ## 🏗️ Technical Pipeline
 
-```
-Phenotype Prediction Vector
-(Eye: Brown 99%, Hair: Brown 55% / Red 44%, Skin: Intermediate 98%)
-                         │
-                         ▼
-        Prompt Synthesizer (prompt_builder.py)
-   "A photorealistic portrait photograph of an adult human,
-    front-facing, brown eyes, brown hair with subtle red tones,
-    intermediate skin pigmentation, studio lighting..."
-                         │
-                         ▼
-        SDXL 1.0 Diffusion Pipeline (generator.py)
-   • Base Model: stabilityai/stable-diffusion-xl-base-1.0
-   • Precision: fp16
-   • Steps: 30
-   • Guidance Scale: 7.0
-   • Output Resolution: 1024x1024
-                         │
-                         ▼
-   Synthesized 1024x1024 PNG Forensic Portrait
+```mermaid
+flowchart TD
+    Vector["📊 <b>Phenotype Prediction Vector</b><br/>Eye: Brown 98.4% • Hair: Dark Brown 91.1% • Skin: Intermediate 89.6%"]
+    
+    subgraph Engine ["🧠 Algorithmic Prompt Synthesizer (prompt_builder.py)"]
+        Margin["⚖️ <b>Probability Margin Evaluator</b><br/>Δ(Top, Runner-up) < 20% Threshold Check"]
+        Tone["🎨 <b>Subtle Undertone Enrichment</b><br/>e.g. 'Brown hair with subtle Red tones'"]
+        Studio["📸 <b>Studio Photography Descriptor Matrix</b><br/>8k, front-facing, neutral expression, studio lighting"]
+        Margin --> Tone --> Studio
+    end
+
+    subgraph SDXL_Pipeline ["🚀 Thread-Safe SDXL 1.0 Diffusion Pipeline (generator.py)"]
+        Lock["🔒 <b>Double-Checked Thread Lock</b><br/>Prevents VRAM Race Conditions"]
+        Model["🖼️ <b>stabilityai/stable-diffusion-xl-base-1.0</b><br/>Precision: fp16 • Steps: 30 • Guidance: 7.0"]
+        Flush["🧹 <b>CUDA VRAM Auto-Cache Flush</b><br/>torch.cuda.empty_cache()"]
+        Lock --> Model --> Flush
+    end
+
+    Vector --> Margin
+    Studio --> Lock
+    Flush --> Result["👤 <b>Synthesized 1024x1024 Forensic Portrait</b><br/>Photorealistic Forensic Facial Composite"]
+
+    classDef vecStyle fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#F8FAFC;
+    classDef engineStyle fill:#1E1B4B,stroke:#6366F1,stroke-width:2px,color:#F8FAFC;
+    classDef sdxlStyle fill:#831843,stroke:#EC4899,stroke-width:2px,color:#F8FAFC;
+    classDef resStyle fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#F8FAFC;
+
+    class Vector vecStyle;
+    class Margin,Tone,Studio engineStyle;
+    class Lock,Model,Flush sdxlStyle;
+    class Result resStyle;
 ```
 
 ---

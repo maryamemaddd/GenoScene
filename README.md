@@ -45,35 +45,62 @@ Quantitative phenotype prediction vectors are translated through an algorithmic 
 
 The predicted quantitative phenotype distributions are then synthesized through an advanced **Stable Diffusion XL (SDXL)** generative pipeline to construct photorealistic, forensically consistent facial composite portraits.
 
+```mermaid
+flowchart TD
+    subgraph S1 ["🧪 1. Genomic Input Matrix"]
+        DNA["🧬 <b>Genotype SNP Data</b><br/>40 Validated Forensic Markers<br/><i>(HERC2, OCA2, SLC45A2, MC1R)</i>"]
+    end
+
+    subgraph S2 ["🧠 2. Multi-Task Machine Learning Engine"]
+        Pre["⚙️ <b>Feature Vectorization</b><br/>Additive Dosage Vector Encoding (0, 1, 2)"]
+        
+        Eye["👁️ <b>Eye Color Classifier</b><br/>Calibrated SVC (RBF Kernel)<br/><i>Blue • Intermediate • Brown</i>"]
+        Hair["💇 <b>Hair Phenotype Stacking</b><br/>Stacking Ensemble (LGBM, XGBoost, TabNet)<br/><i>Blond • Brown • Red • Black + Shade</i>"]
+        Skin["🧖 <b>Skin Tone Classifier</b><br/>HistGradientBoosting (Optuna-Tuned)<br/><i>Pale • Intermediate • Dark</i>"]
+        
+        Pre --> Eye
+        Pre --> Hair
+        Pre --> Skin
+    end
+
+    subgraph S3 ["📊 3. Quantified Phenotype Vectors"]
+        Pheno["📈 <b>Calibrated Posterior Probabilities</b><br/>Multi-Task Trait Distributions & Overall Confidence"]
+    end
+
+    subgraph S4 ["🎨 4. Generative Reconstruction & Client Delivery"]
+        Prompt["📝 <b>Dynamic Prompt Synthesizer</b><br/>Probability Margin Thresholding & Subtle Undertones"]
+        SDXL["🖼️ <b>Stable Diffusion XL (SDXL 1.0)</b><br/>1024x1024 Photorealistic Composite Synthesis"]
+        UI["🖥️ <b>Interactive Forensic Workstation</b><br/>3D DNA Helix Stream • Real-time Inspection • History Logs"]
+    end
+
+    DNA --> Pre
+    Eye --> Pheno
+    Hair --> Pheno
+    Skin --> Pheno
+    Pheno --> Prompt
+    Prompt --> SDXL
+    Pheno --> UI
+
+    classDef cyan fill:#082f49,stroke:#06b6d4,stroke-width:2px,color:#f8fafc;
+    classDef blue fill:#172554,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    classDef amber fill:#451a03,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
+    classDef purple fill:#3b0764,stroke:#a855f7,stroke-width:2px,color:#f8fafc;
+    classDef emerald fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    classDef rose fill:#831843,stroke:#f43f5e,stroke-width:2px,color:#f8fafc;
+    classDef teal fill:#042f2e,stroke:#14b8a6,stroke-width:2px,color:#f8fafc;
+    classDef slate fill:#1e293b,stroke:#64748b,stroke-width:2px,color:#f8fafc;
+
+    class DNA cyan;
+    class Pre slate;
+    class Eye blue;
+    class Hair amber;
+    class Skin purple;
+    class Pheno emerald;
+    class Prompt rose;
+    class SDXL rose;
+    class UI teal;
 ```
-                              ┌─────────────────────────────────────────┐
-                              │             Genomic Data                │
-                              │          (40 Selected SNPs)             │
-                              └────────────────────┬────────────────────┘
-                                                   │
-                                                   ▼
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 AI Inference Engine                                    │
-│   • Eye Color: Calibrated Support Vector Classifier (SVC)                              │
-│   • Hair Color: Stacking Ensemble (LGBM, XGBoost, TabNet, HistGB)                      │
-│   • Skin Pigmentation: HistGradientBoosting Classifier                                │
-└──────────────────────────────────────────────────┬─────────────────────────────────────┘
-                                                   │
-                                                   ▼
-                                 ┌───────────────────────────────────┐
-                                 │   Calibrated Phenotype Vectors    │
-                                 │   (Class Probabilities & Shades)  │
-                                 └─────────────────┬─────────────────┘
-                                                   │
-                         ┌─────────────────────────┴─────────────────────────┐
-                         ▼                                                   ▼
-┌─────────────────────────────────────────────────┐ ┌─────────────────────────────────────────────────┐
-│         Face Generation Engine (SDXL)           │ │              Interactive Frontend                 │
-│  • Dynamic Natural Language Prompt Builder      │ │  • Real-time Phenotype Probability Visualizer   │
-│  • High-Resolution 1024x1024 Portrait Synthesis │ │  • Interactive DNA Double-Helix Stream          │
-│  • Thread-Safe GPU Memory Management            │ │  • Educational Forensic Genomic Modules         │
-└─────────────────────────────────────────────────┘ └─────────────────────────────────────────────────┘
-```
+
 
 ---
 

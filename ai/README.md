@@ -19,24 +19,34 @@ The **GenoScene AI Engine** is a high-throughput, low-latency FastAPI microservi
 
 ## 🏗️ Architecture & Model Design
 
-```
-Raw CSV Upload (SNP Markers)
-          │
-          ▼
-Preprocessing & Encoding (preprocessing.py)
-          │
-          ▼
-Feature Selection (40 Key Genomic Markers)
-          │
-    ┌─────┴───────────────────────┬────────────────────────┐
-    ▼                             ▼                        ▼
-Eye Classifier             Hair Classifier           Skin Classifier
-(Calibrated SVC)         (Stacking Ensemble)       (HistGradientBoosting)
-    │                             │                        │
-    └──────────────────────┬──────┴────────────────────────┘
-                           │
-                           ▼
-          Calibrated JSON Probability Payload
+```mermaid
+flowchart TD
+    CSV["📄 <b>Raw CSV Upload</b><br/>Genomic SNP Matrix"] --> Val["🔍 <b>Validation & Ingestion</b><br/>Schema verification & sanity check"]
+    Val --> Pre["⚙️ <b>Preprocessing & Encoding</b><br/>Additive Dosage Vector Transformation (0, 1, 2)"]
+    Pre --> FS["🎯 <b>Feature Selection Engine</b><br/>40 Ancestry & Phenotype Informative Markers"]
+
+    subgraph ML_Inference ["🔬 Multi-Task Parallel Inference Pipeline"]
+        FS --> M1["👁️ <b>Eye Color Classifier</b><br/>Calibrated SVC (RBF Kernel)<br/><i>Blue • Intermediate • Brown</i>"]
+        FS --> M2["💇 <b>Hair Color & Shade Stacking</b><br/>Meta: Logistic Regression<br/>Base: LightGBM + XGBoost + HistGB"]
+        FS --> M3["🧖 <b>Skin Dermal Pigmentation</b><br/>HistGradientBoosting (Optuna-Tuned)<br/><i>Pale • Intermediate • Dark</i>"]
+    end
+
+    M1 --> Calib["📊 <b>Probability Calibration Engine</b><br/>Sigmoid / Isotonic Posterior Scaling"]
+    M2 --> Calib
+    M3 --> Calib
+    Calib --> Out["📦 <b>JSON Response Payload</b><br/>Calibrated Posterior Distributions & Confidence Score"]
+
+    classDef startStyle fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#F8FAFC;
+    classDef modelEye fill:#172554,stroke:#3B82F6,stroke-width:2px,color:#F8FAFC;
+    classDef modelHair fill:#451A03,stroke:#F59E0B,stroke-width:2px,color:#F8FAFC;
+    classDef modelSkin fill:#3B0764,stroke:#A855F7,stroke-width:2px,color:#F8FAFC;
+    classDef endStyle fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#F8FAFC;
+
+    class CSV,Val,Pre,FS startStyle;
+    class M1 modelEye;
+    class M2 modelHair;
+    class M3 modelSkin;
+    class Calib,Out endStyle;
 ```
 
 ### Models & Artifacts

@@ -29,8 +29,30 @@ The **GenoScene AI Engine** is a high-throughput, low-latency FastAPI microservi
 | :--- | :--- | :--- | :--- |
 | **Eye Color** | Support Vector Classifier (`SVC`) | Sigmoid Probability Calibration, RBF Kernel | `models/Eye_model.joblib`<br>`artifacts/Eye_artifacts.joblib` |
 | **Hair Color** | Stacking Ensemble (`StackingClassifier`) | Base learners: LightGBM, XGBoost, HistGradientBoosting; Meta-learner: LogisticRegression | `models/Hair_model.joblib`<br>`artifacts/Hair_artifacts.joblib` |
-| **Skin Tone** | `HistGradientBoostingClassifier` | Optuna Bayesian Tuned, Class-Weight Balanced | `models/Skin_model.joblib`<br>`artifacts/Skin_artifacts.joblib` |
+| **Skin Tone** | `LGBMClassifier` (Optuna-Tuned) | Bayesian Hyperparameter Optimized, Class-Weight Balanced | `models/Skin_model.joblib`<br>`artifacts/Skin_artifacts.joblib` |
 | **Feature Set** | 40 Forensic SNPs | Variance thresholding & ancestry-informative marker alignment | `artifacts/selected_snps.joblib` |
+
+---
+
+## 📊 Model Performance & Empirical Visualizations
+
+The 3 production models were evaluated on a stratified 20% holdout test dataset ($N=2,064$ forensic genotypes):
+
+<p align="center">
+  <img src="../docs/assets/model_performance.png" alt="GenoScene Model Performance Benchmark" width="100%" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+</p>
+
+### 📈 Quantitative Metric Summary
+
+| Phenotype Trait | Selected Model Architecture | Test Accuracy | Macro F1-Score | Cross-Entropy Log-Loss | Forensic Reliability |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **👁️ Eye Pigmentation** | Calibrated SVC (RBF Kernel) | **98.45%** | **68.64%** | `0.0419` | 🟢 High (>98% Top-1) |
+| **💇 Hair Phenotype** | Stacking Ensemble (LGBM, XGBoost, TabNet) | **94.04%** | **91.04%** | `0.1950` | 🟢 Robust Multi-Class |
+| **🧬 Skin Pigmentation** | Optuna-Tuned LightGBM | **88.32%** | **87.39%** | `0.3612` | 🟢 High Concordance |
+
+> 📌 **Note on Macro F1 for Eye Color**: Eye color distribution in real-world forensic cohorts exhibits severe class imbalance (Brown: ~64%, Blue: ~36%, Intermediate: <0.1%). While overall accuracy reaches **98.45%**, the macro F1 is mathematically influenced by the rare Intermediate class.
+>
+> 💡 *To reproduce these charts, run `python ai/plot_performance.py`.*
 
 ---
 

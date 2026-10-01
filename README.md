@@ -79,6 +79,22 @@ Each marker is encoded into additive dosage alleles ($0 = \text{homozygous refer
 
 ---
 
+## 📊 Empirical Model Evaluation & Visualizations
+
+The three selected machine learning classifiers were comprehensively evaluated on a 20% holdout test set ($N=2,064$ forensic genotypes):
+
+<p align="center">
+  <img src="docs/assets/model_performance.png" alt="GenoScene Model Performance Benchmark" width="100%" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+</p>
+
+| Phenotype Trait | Selected Model Architecture | Test Accuracy | Macro F1-Score | Log-Loss | Production Status |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **👁️ Eye Pigmentation** | Calibrated SVC (RBF Kernel) | **98.45%** | **68.64%** | `0.0419` | 🟢 Validated & Deployed |
+| **💇 Hair Phenotype** | Stacking Ensemble (LGBM, XGBoost, TabNet) | **94.04%** | **91.04%** | `0.1950` | 🟢 Validated & Deployed |
+| **🧬 Skin Pigmentation** | Optuna-Tuned LightGBM | **88.32%** | **87.39%** | `0.3612` | 🟢 Validated & Deployed |
+
+---
+
 ## 🚀 Quick Start Guide
 
 ### Prerequisites

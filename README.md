@@ -135,6 +135,20 @@ npm run dev
 
 ---
 
+## 🧪 Ready-to-Test Demo Datasets
+
+We provide pre-validated, anonymous genomic SNP test profiles in [`demo_samples/`](demo_samples/) for instant demonstration:
+
+| Case File | Primary Traits | Key Biomarkers |
+| :--- | :--- | :--- |
+| **[`case_01_blue_eyes_blond_hair.csv`](demo_samples/case_01_blue_eyes_blond_hair.csv)** | **Blue Eyes**, **Blond Hair**, **Pale Skin** | `rs12913832 (G/G)`, `rs16891982` |
+| **[`case_02_brown_eyes_black_hair.csv`](demo_samples/case_02_brown_eyes_black_hair.csv)** | **Brown Eyes**, **Black Hair**, **Intermediate Skin** | Ancestral pigmentation alleles |
+| **[`case_03_red_hair_pale_skin.csv`](demo_samples/case_03_red_hair_pale_skin.csv)** | **Hazel/Brown Eyes**, **Red Hair**, **Pale Skin** | `MC1R` loss-of-function variants |
+
+*Simply download any of these files and drag them directly into the GenoScene web interface!*
+
+---
+
 ## 🔐 Environment Variables
 
 | Variable | Service | Description | Default / Example |
@@ -198,6 +212,11 @@ Genosite/
 ├── frontend/               # Secondary React Client Interface
 │   ├── src/                # Components and history pages
 │   └── package.json
+│
+├── demo_samples/           # Pre-validated SNP CSV demo datasets for testing
+│   ├── case_01_blue_eyes_blond_hair.csv
+│   ├── case_02_brown_eyes_black_hair.csv
+│   └── case_03_red_hair_pale_skin.csv
 │
 ├── final_5.csv             # Reference SNP genotype dataset
 ├── Genoscean_amazing.ipynb # Model development & scientific training notebook
